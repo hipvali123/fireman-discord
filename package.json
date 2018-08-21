@@ -1,0 +1,19 @@
+{
+  "name": "fireman",
+  "version": "1.0.0",
+  "description": "cel mai bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vali",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.4.2",
+    "ms": "^2.1.1",
+    "opusscript": "0.0.6",
+    "random-puppy": "^1.1.0",
+    "superagent": "^3.8.3",
+    "ytdl-core": "^0.24.0"
+  }
+}
