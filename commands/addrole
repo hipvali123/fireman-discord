@@ -1,0 +1,26 @@
+const Discord = require("discord.js");
+
+module.exports.run = async (bot, message, args) => {
+
+  //!addrole @andrew Dog Person
+  if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.reply("Nu ai acceasta permisiune.");
+  let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
+  if(!rMember) return message.reply("Nu am gasit utilizatorul.");
+  let role = args.join(" ").slice(22);
+  if(!role) return message.reply("Specifica un rol.");
+  let gRole = message.guild.roles.find(`name`, role);
+  if(!gRole) return message.reply("Nu am gasit rolul.");
+
+  if(rMember.roles.has(gRole.id)) return message.reply(`<@${gRole.name}> deja are accest rol.`);
+  await(rMember.addRole(gRole.id));
+
+  try{
+    await rMember.send(`Felicitari ai primit rolul de **${gRole.name}**`)
+  }catch(e){
+    message.channel.send(`Felicitari <@${rMember.id}>, ai primit rolul de **${gRole.name}**.`)
+  }
+}
+
+module.exports.help = {
+  name: "addrole"
+}
