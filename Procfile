@@ -1,1 +1,1 @@
-worker: node baros.js
+worker: node index.js
